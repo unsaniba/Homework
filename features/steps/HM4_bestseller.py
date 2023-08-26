@@ -1,5 +1,6 @@
 from behave import given, when, then
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 
 BESTSELLER_LINK = (By.CSS_SELECTOR, 'a[href*="nav_cs_bestsellers"]')
@@ -13,7 +14,8 @@ def open_amazon(context):
 
 @when('Click BESTSELLER')
 def click_on_bestseller(context):
-    context.driver.find_element(*BESTSELLER_LINK).click()
+    # context.driver.find_element(*BESTSELLER_LINK).click()
+    context.driver.wait.until(EC.element_to_be_clickable(BESTSELLER_LINK)).click()
 
 
 @then('Verify footer has {expected_amount} links')

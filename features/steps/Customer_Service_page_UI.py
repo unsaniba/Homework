@@ -1,5 +1,6 @@
 from behave import given, when, then
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 
 URL = 'https://www.amazon.com/gp/help/customer/display.html'
